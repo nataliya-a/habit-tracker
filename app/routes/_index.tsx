@@ -9,8 +9,9 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+    <div className="text-center bg-primary text-black font-black text-6xl  p-8">
       <h1>Welcome to Remix</h1>
+
       <ul>
         <li>
           <a
@@ -18,7 +19,7 @@ export default function Index() {
             href="https://remix.run/tutorials/blog"
             rel="noreferrer"
           >
-            15m Quickstart Blog Tutorial
+            bye
           </a>
         </li>
         <li>
