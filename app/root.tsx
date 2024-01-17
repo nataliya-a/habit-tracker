@@ -20,6 +20,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
         <link
           href="https://fonts.googleapis.com/css?family=Poppins"
           rel="stylesheet"

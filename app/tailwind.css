@@ -6,3 +6,4 @@
 a {
   @apply underline hover:bg-secondary hover:no-underline;
 }
+
