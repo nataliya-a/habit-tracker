@@ -3,8 +3,8 @@ import Home from "./home";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "tractr" },
+    { name: "description", content: "the habit tracker" },
   ];
 };
 
