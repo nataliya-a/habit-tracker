@@ -92,7 +92,7 @@ export function AddHabit() {
           />
           <div className="modal-action p-2">
             <button
-              className="btn btn-primary rounded-none"
+              className="btn btn-primary rounded-none font-mono"
               type="submit"
               onClick={handleAddHabit}
             >
