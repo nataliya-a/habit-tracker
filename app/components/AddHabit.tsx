@@ -1,24 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-export function AddHabit() {
+export function AddHabit({
+  habits,
+  setHabits,
+}: {
+  habits: string[];
+  setHabits: any;
+}) {
   const [NewHabit, setNewHabit] = useState("");
-  const [habits, setHabits] = useState([]);
-
-  // fetch habits from local storage
-  const fetchHabits = () => {
-    const habits = localStorage.getItem("habits");
-    if (habits) {
-      setHabits(JSON.parse(habits));
-    }
-  };
-
-  // fetch habits on component mount
-  useEffect(() => {
-    fetchHabits();
-  }, []);
-
-  //   console.log("SavedHabits:", habits);
-
   // save habits to local storage
   const saveHabits = (habits: any) => {
     localStorage.setItem("habits", JSON.stringify(habits));
@@ -34,13 +23,10 @@ export function AddHabit() {
   const handleAddHabit = (event: any) => {
     event.preventDefault();
 
-    // console.log("Habits:", habits);
-
-    // Use the NewHabit state here or perform any other actions
-    console.log("New Habit Value:", NewHabit);
-
-    // Add the new habit to the list
-    addHabit(NewHabit);
+    if (NewHabit.trim() !== "") {
+      // Add the new habit to the list
+      addHabit(NewHabit);
+    }
 
     // Reset the NewHabit state
     setNewHabit("");
@@ -48,16 +34,10 @@ export function AddHabit() {
     // Close the modal
     // @ts-ignore
     document.getElementById("my_modal_1")?.close();
-
-    // Reload the page
-    window.location.reload();
-
-    // redirect to home page
-    // redirect("/home");
   };
 
   return (
-    <div className="flex bg-black w-12 h-10 ">
+    <div className="flex bg-black w-10 h-8 sm:w-12 sm:h-10 ">
       <button
         className="w-full bg-primary text-black text-xl font-bold transition-all ease-in-out duration-300 hover:border-black hover:-translate-x-2 hover:-translate-y-2 hover:scale-[1.2] active:-translate-x-0 active:-translate-y-0 active:scale-100 active:duration-75"
         // @ts-ignore
@@ -88,9 +68,14 @@ export function AddHabit() {
             value={NewHabit}
             autoFocus
             onChange={(e) => setNewHabit(e.target.value)}
-            className="input bg-purple-200 text-purple-500 font-extrabold font-xl rounded-none font-mono w-full max-w-xs border-none  focus:outline-primary"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleAddHabit(e);
+              }
+            }}
+            className="input bg-purple-200 text-purple-500 font-extrabold font-xl rounded-none font-mono w-full  border-none  focus:outline-primary"
           />
-          <div className="modal-action p-2">
+          <div className="modal-action ">
             <button
               className="btn btn-primary rounded-none font-mono"
               type="submit"
