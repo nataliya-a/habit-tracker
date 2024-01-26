@@ -144,7 +144,7 @@ export default function Home() {
                 )}
                 <div className="w-full flex flex-row justify-center items-center mt-10">
                   <h1 className="text-xl sm:text-3xl">
-                    {habitsCompleted.length === 0
+                    {habitsCompleted && habitsCompleted.length === 0
                       ? "let's get slaying"
                       : "time for a treat!"}
                   </h1>
