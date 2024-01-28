@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { Habit } from "~/types/habit";
+
+import { v4 as uuidv4 } from "uuid";
 
 export function AddHabit({
   habits,
   setHabits,
 }: {
-  habits: string[];
+  habits: Habit[];
   setHabits: any;
 }) {
   const [NewHabit, setNewHabit] = useState("");
@@ -14,9 +17,16 @@ export function AddHabit({
   };
 
   // add habit to list
-  const addHabit = (habit: any) => {
-    const newHabits = [...habits, habit];
-    setHabits(newHabits as any);
+  const addHabit = (habitName: string) => {
+    const newHabits = [
+      ...habits,
+      {
+        id: uuidv4(),
+        name: habitName,
+        completed: false,
+      },
+    ] as Habit[];
+    setHabits(newHabits);
     saveHabits(newHabits);
   };
 
